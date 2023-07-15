@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title> Pitfalls of GNNs </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css" rel="stylesheet" type="text/css">
+	<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js"></script>
+
+	<link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+	<main>
+		<section id="intro">
+			<div class="ui vertical stripe intro segment">
+				<div class="ui stackable very relaxed center aligned grid container">
+					<div class="row">
+						<h1 class="ui header"> Pitfalls of Graph Neural Networks — A visual introduction </h1>
+					</div>
+					<div class="row">
+						<p> Julián Méndez, Nithya Bhasker, Stefanie Speidel, Raimund Dachselt </p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="scrolly">
+			<article>
+				<div class="step">
+					<div id="padding-block"> </div>
+				</div>
+
+				<div class="stackable very relaxed ui grid container">
+					<div class="row step">
+
+						<p>
+							Graph Neural Networks (GNNs) are a special class of machine learning algorithms that were
+							introduced to work with graph structured datasets. It facilitates the analysis of real world
+							data that naturally occur as graphs in various disciplines, by exploiting the structural
+							information contained in these data.
+						</p>
+
+					</div>
+					<div class="row step">
+						<img src="/assets/pic1.png" alt="Graph Neural Networks" width="500" height="350">
+					</div>
+					<div class="row step">
+						<p>
+							Examples include prediction of protein interfaces for
+							drug design, prediction of chemical properties, recommender systems, disease prediction and
+							social network analysis.
+						</p>
+
+					</div>
+
+					<div class="row step">
+						<img src="/assets/pic2.png" alt="Example usages" width="500" height="450">
+					</div>
+
+					<div class="row step">
+						<p>
+							The input to the GNN is a graph of the form G=(V,E, A), where V are the nodes of the graph,
+							E are the edges and A is the adjacency matrix. The nodes and edges can contain additional
+							attributes or features. The node attributes usually describe the properties of the sample
+							represented by the node, and the edge attributes describe the nature of the relationship
+							between the nodes.
+
+						</p>
+
+					</div>
+					<div class="row step">
+						<p>
+							For example, if the nodes of a graph represent a plant, then the node
+							attributes could describe the physical properties of the plant like the height of the plant,
+							the number of leaves it contains and age of the plant. The edge attributes in this case
+							might describe how two plants are related - flowering/non-flowering, annual/perennial and
+							spore bearing/seed bearing.
+						</p>
+					</div>
+
+					<div class="row step">
+
+						<p>
+							GNNs could be used either for node level, edge level or graph level tasks. The working
+							mechanism of GNNs can be explained in terms of message passing framework.
+						</p>
+
+						<b>Input:</b>
+						<ul>
+							<li> Graph G with V_i vertices and E_i edges, i = 1 ….. N </li>
+							<li> Each of the vertices has an M-dimensional feature vector X </li>
+							<li> Adjacency matrix is Nx N matrix A </li>
+
+
+						</ul>
+					</div>
+
+					<div class="row step">
+						<p>
+							GNNs are built upon the message passing algorithm. The message passing algorithm has an
+							aggregate step and an update step.
+							For each layer of GNN, the aggregate step gathers information from the neighborhood of each
+							of the vertices, and the update step updates the node features of the vertices with the
+							aggregated information based on an aggregation rule. Different aggregation rules make up for
+							different flavors of GNNs - Graph Convolutional Networks - mean aggregation rule, Graph
+							Attention Networks - weighted mean aggregation rule.
+
+						</p>
+					</div>
+
+					<div class="row">
+						<div class="padding-block"> </div>
+					</div>
+
+				</div>
+			</article>
+
+			<figure>
+				<p>0</p>
+			</figure>
+		</section>
+
+		<section id="outro">
+			<div class="ui center aligned container">
+				<h1 class="ui header"> Acknowledgements </h1>
+				<div class="row">
+					<p> This work was funded by DFG grant 389792660 as part of TRR~248 -- CPEC,
+						(see <a href="https://perspicuous-computing.science">cpec.science</a>)
+					</p>
+				</div>
+				<div class="row">
+					<p> The explorable was written using
+						<a href="https://js.cytoscape.org/">Cytoscape.js</a>
+						<a href="https://d3js.org/">d3.js</a> and
+						<a href="https://github.com/russellsamora/scrollama">scrollama</a>.
+					</p>
+				</div>
+			</div>
+
+		</section>
+	</main>
+
+	<!-- <div class='debug'></div> -->
+	<script src="https://unpkg.com/d3@5.16.0/dist/d3.min.js"></script>
+	<script src="https://unpkg.com/scrollama"></script>
+	<script src="./js/main.js"></script>
+</body>
+
+</html>
